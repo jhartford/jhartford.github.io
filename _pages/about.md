@@ -14,4 +14,4 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am broadly interested in how we can leverage structural assumptions about data generating processes to make flexible machine learning models generalize beyond the observed distribution of training data. To this end, I have worked on using deep learning for causal inference, and on designing deep network architectures for permutation invariant data.
+I am broadly interested in how we can leverage structural assumptions about data generating processes to make flexible machine learning models generalize beyond the observed distribution of training data. To this end, I have worked on using deep learning for causal inference, and on designing deep network architectures for permutation invariant data. Since starting at Mila, I've been focusing on learning representations with identifiability guarantees. 
