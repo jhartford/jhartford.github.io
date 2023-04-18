@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Mila Tea Talk
+title: Mila Tea Talk (2022)
 description: Some Steps Toward Causal Representation Learning
 img: assets/img/representation_talk.jpg
 importance: 1

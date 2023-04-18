@@ -2,7 +2,7 @@
 layout: page
 title: NeurIPS 2016 Oral
 description: Deep Learning for Predicting Human Strategic Behavior
-img:
+img: assets/img/rockpaper.jpg
 importance: 3
 category: talks
 ---

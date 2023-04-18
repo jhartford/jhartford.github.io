@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Mila Tea Talk
+title: Mila Tea Talk (2020)
 description: Valid Causal Inference with (Some) Invalid Instruments
 img: assets/img/IV_talk.jpg
 importance: 2

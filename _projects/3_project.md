@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  MLRetrospectives
+title:  ML Retrospectives
 description: Retrospective on DeepIV and some general thoughts on research strategy
 img: assets/img/research_objectives.jpg
 importance: 3
