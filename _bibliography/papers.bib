@@ -59,6 +59,7 @@
   journal   = {Digital Discovery},
   volume    = {2},
   number    = {3},
+  selected  = {false},
   pages     = {557--577},
   year      = {2023},
   pdf       = {GFN-AI-Science.pdf},
@@ -70,7 +71,7 @@
 @inproceedings{pmlr-v202-ailer23a,
   bibtex_show = {True},
   title       = {Sequential Underspecified Instrument Selection for Cause-Effect Estimation},
-  selected    = {True},
+  selected    = {true},
   author      = {Ailer, Elisabeth and Hartford, Jason and Kilbertus, Niki},
   booktitle   = {Proceedings of the 40th International Conference on Machine Learning},
   pages       = {408--420},
@@ -80,14 +81,9 @@
   editor      = {Krause, Andreas and Brunskill, Emma and Cho, Kyunghyun and Engelhardt, Barbara and Sabato, Sivan and Scarlett, Jonathan},
   volume      = {202},
   series      = {Proceedings of Machine Learning Research},
+  abstract    = {Instrumental variable (IV) methods are used to estimate causal effects in settings with unobserved confounding, where we cannot directly experiment on the treatment variable. Instruments are variables which only affect the outcome indirectly via the treatment variable(s). Most IV applications focus on low-dimensional treatments and crucially require at least as many instruments as treatments. This assumption is restrictive: in the natural sciences we often seek to infer causal effects of high-dimensional treatments (e.g., the effect of gene expressions or microbiota on health and disease), but can only run few experiments with a limited number of instruments (e.g., drugs or antibiotics). In such under-specified problems, the full treatment effect is not identifiable in a single experiment even in the linear case. We show that one can still reliably recover the projection of the treatment effect onto the instrumented subspace and develop techniques to consistently combine such partial estimates from different sets of instruments. We then leverage our combined estimators in an algorithm that iteratively proposes the most informative instruments at each round of experimentation to maximize the overall information about the full causal effect.},
   month       = {; Oral presentation (2\% acceptance)</b>;}
-},
-  publisher =    {PMLR},
-  pdf = 	 {https://proceedings.mlr.press/v202/ailer23a/ailer23a.pdf},
-  url = 	 {https://proceedings.mlr.press/v202/ailer23a.html},
-  abstract = 	 {Instrumental variable (IV) methods are used to estimate causal effects in settings with unobserved confounding, where we cannot directly experiment on the treatment variable. Instruments are variables which only affect the outcome indirectly via the treatment variable(s). Most IV applications focus on low-dimensional treatments and crucially require at least as many instruments as treatments. This assumption is restrictive: in the natural sciences we often seek to infer causal effects of high-dimensional treatments (e.g., the effect of gene expressions or microbiota on health and disease), but can only run few experiments with a limited number of instruments (e.g., drugs or antibiotics). In such under-specified problems, the full treatment effect is not identifiable in a single experiment even in the linear case. We show that one can still reliably recover the projection of the treatment effect onto the instrumented subspace and develop techniques to consistently combine such partial estimates from different sets of instruments. We then leverage our combined estimators in an algorithm that iteratively proposes the most informative instruments at each round of experimentation to maximize the overall information about the full causal effect.}
 }
-
 
 
  @phdthesis{Hartford_2021,
