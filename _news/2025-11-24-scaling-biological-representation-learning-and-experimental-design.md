@@ -12,4 +12,4 @@ venue: Maths Life Sciences seminar series, Department of Mathematics, University
   Manchester
 ---
 
-I will give an invited talk titled 'Scaling Biological Representation Learning and Experimental Design' as part of the Maths Life Sciences seminar series at the University of Manchester on 24 November 2025. I will discuss scaling masked-autoencoders on microscopy images, recovering known biological structure from representations, and outline mechanistic interpretability techniques and experimental-design strategies for large models.
+I gave an invited talk titled 'Scaling Biological Representation Learning and Experimental Design' as part of the Maths Life Sciences seminar series at the University of Manchester. I discussed scaling masked-autoencoders on microscopy images, recovering known biological structure from representations, and outline mechanistic interpretability techniques and experimental-design strategies for large models.
