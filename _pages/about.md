@@ -6,8 +6,8 @@ subtitle: Dame Kathleen Ollerenshaw Fellow at the <a href="https://www.cs.manche
 
 profile:
   align: right
-  image: Manchester_pic.jpg
-  image_cicular: false # crops the image to make it circular
+  image: Manchester_pic.JPG
+  image_cicular: true # crops the image to make it circular
   address:
 news: true  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
