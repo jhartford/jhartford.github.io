@@ -2,15 +2,14 @@
 from __future__ import annotations
 
 import json
+import os
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import List, Dict
+from typing import List, Dict, Optional
 
 import requests
 from openai import OpenAI
-
-client = OpenAI()
 
 # --- CONFIG --------------------------------------------------------------
 
@@ -43,7 +42,7 @@ def fetch_arxiv_papers() -> List[ArxivPaper]:
     """
     Query arXiv's API for your papers and return a list of ArxivPaper objects.
     """
-    base = "http://export.arxiv.org/api/query"
+    base = "https://export.arxiv.org/api/query"
     params = {
         "search_query": ARXIV_SEARCH,
         "start": 0,
@@ -170,7 +169,19 @@ def slugify(text: str) -> str:
     return s
 
 
-def summarise_paper_with_llm(paper: ArxivPaper) -> Dict[str, str]:
+def get_openai_client() -> Optional[OpenAI]:
+    api_key = os.environ.get("OPENAI_API_KEY", "").strip()
+    if not api_key:
+        print("OPENAI_API_KEY is not set; skipping news/blog generation.")
+        return None
+    try:
+        return OpenAI(api_key=api_key)
+    except Exception as exc:  # pragma: no cover - safety guard
+        print(f"Failed to initialise OpenAI client: {exc}")
+        return None
+
+
+def summarise_paper_with_llm(paper: ArxivPaper, client: OpenAI) -> Dict[str, str]:
     """
     Use OpenAI to generate a short news blurb and a longer blog-style summary.
     """
@@ -309,8 +320,12 @@ def main():
         print("No new BibTeX entries needed.")
 
     for p in news_papers:
+        if client is None:
+            print(f"Skipping summary for {p.arxiv_id} due to missing OpenAI client.")
+            continue
+
         print(f"Generating summary for new paper {p.arxiv_id}")
-        summary = summarise_paper_with_llm(p)
+        summary = summarise_paper_with_llm(p, client)
         news_path = write_news_file(p, summary)
         blog_path = write_blog_post(p, summary)
         print(f"  Wrote news: {news_path}")
@@ -328,3 +343,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    client = get_openai_client()
+
