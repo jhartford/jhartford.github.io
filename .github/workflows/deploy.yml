@@ -5,10 +5,44 @@ on:
     branches:
       - master
       - main
+    paths:
+      - _bibliography/**
+      - _config.yml
+      - _data/**
+      - _includes/**
+      - _layouts/**
+      - _news/**
+      - _pages/**
+      - _plugins/**
+      - _posts/**
+      - _projects/**
+      - _sass/**
+      - 404.html
+      - assets/**
+      - Gemfile
+      - Gemfile.lock
+      - robots.txt
   pull_request:
     branches:
       - master
       - main
+    paths:
+      - _bibliography/**
+      - _config.yml
+      - _data/**
+      - _includes/**
+      - _layouts/**
+      - _news/**
+      - _pages/**
+      - _plugins/**
+      - _posts/**
+      - _projects/**
+      - _sass/**
+      - 404.html
+      - assets/**
+      - Gemfile
+      - Gemfile.lock
+      - robots.txt
 
 jobs:
   deploy:
