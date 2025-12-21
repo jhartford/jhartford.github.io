@@ -23,6 +23,9 @@ jobs:
         with:
           ruby-version: '3.0.2'
           bundler-cache: true
+          bundler: 2.5.18
+      - name: Install gems
+        run: bundle _2.5.18_ install
       - name: Install mermaid.cli
         run: npm install -g mermaid.cli
       - name: Configure git
@@ -33,4 +36,4 @@ jobs:
         env:
           SRC_BRANCH: master
           WORKTREE_DIR: /tmp/jhartford-gh-pages
-        run: bash bin/deploy_local
+        run: bundle _2.5.18_ exec bash bin/deploy_local
