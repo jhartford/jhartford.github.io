@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Deploy to GitHub Pages without Docker.
+# Builds locally, syncs _site/ into a gh-pages worktree, and force-pushes.
+
+SRC_BRANCH="${SRC_BRANCH:-$(git rev-parse --abbrev-ref HEAD)}"
+DEPLOY_BRANCH="${DEPLOY_BRANCH:-gh-pages}"
+WORKTREE_DIR="${WORKTREE_DIR:-/tmp/jhartford-gh-pages}"
+
+if ! command -v rsync >/dev/null 2>&1; then
+  echo "rsync is required for deployment." >&2
+  exit 1
+fi
+
+export JEKYLL_ENV=production
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+bundle exec jekyll build
+
+git worktree add -B "$DEPLOY_BRANCH" "$WORKTREE_DIR"
+
+rsync -a --delete --exclude .git --exclude .gitignore --exclude CNAME ./_site/ "$WORKTREE_DIR/"
+touch "$WORKTREE_DIR/.nojekyll"
+
+(
+  cd "$WORKTREE_DIR"
+  git add -fA
+  git commit --allow-empty -m "$(git log -1 --pretty=%B) [ci skip]"
+  [[ ${NO_PUSH:-} ]] || git push -f -q origin "$DEPLOY_BRANCH"
+)
+
+git worktree remove "$WORKTREE_DIR"
+git checkout "$SRC_BRANCH"
+
+echo "Deployed successfully!"
